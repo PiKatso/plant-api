@@ -1,4 +1,5 @@
 class PlantsController < ApplicationController
+  # before_action
 
   def index
     @plants = Plant.all
