@@ -34,5 +34,9 @@ describe "get all plants route", type: :request do
     expect(output.fetch("plant_type")).to eq "#{plant.plant_type}"
   end
 
+  it 'returns random plant' do
+    get '/v1/plants?random'
+    expect(response).to have_http_status(:success)
+  end
 
 end
