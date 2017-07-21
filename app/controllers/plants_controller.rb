@@ -2,7 +2,15 @@ class PlantsController < ApplicationController
   # before_action
 
   def index
-    @plants = Plant.all
+    if name = params[:name]
+      @plants =Plant.name_search(name)
+    elsif sci_name = params[:scientific_name]
+      @plants = Plant.sci_name_search(sci_name)
+    elsif plant_type = params[:plant_type]
+      @plants = Plant.type_search(plant_type)
+    else
+      @plants = Plant.all
+    end
     json_response(@plants)
   end
 
