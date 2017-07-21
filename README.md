@@ -1,24 +1,102 @@
-# README
+# _Plants of the Pacific Northwest API_
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### _This is an API Application built using Ruby on Rails.  Started July 15, 2017_
 
-Things you may want to cover:
+#### By _**Kat Gifford**_
 
-* Ruby version
+## Description
 
-* System dependencies
+This is an API that includes data for plants of the Pacific Northwest. It includes multiple scopes listed below.
 
-* Configuration
+Users can access:
+- GET requests plants
+- POST, PATCH, PUT, DELETE requests for plants and reviews
 
-* Database creation
+Scopes:
+- Filters plants by name
+- Filters plants by scientific name
+- Filters plants by plant type
 
-* Database initialization
+The application structure is outlined below.  
 
-* How to run the test suite
+Models:
+  - Plants
 
-* Services (job queues, cache servers, search engines, etc.)
+## Database Seeding
 
-* Deployment instructions
+The application is currently seeded using `faker`.  It seeds 20 plants.
 
-* ...
+## Prerequisites
+
+You will need the following things properly installed on your computer.
+
+* [Git](https://git-scm.com/)
+* [Postgres](https://www.postgresql.org/)
+* [Ruby](https://www.ruby-lang.org/en/downloads/)
+* [Rails](http://rubyonrails.org/)
+
+## Installation
+
+In your terminal:
+* `git clone https://github.com/PiKatso/plant-api`
+* `cd plant-api`
+* `bundle install`
+* Open terminal window and run `postgres`.  Leave this window open.
+* In seperate terminal window:
+* `bundle exec rake db:setup`
+* `bundle exec rake db:test:prepare`
+
+You can test the API in Postman.
+* URL: localhost:3000/
+
+## Calling API from another application
+You can test API calls from your own application via the Rails Console.  See sample commands below for GET, PATCH, POST, and DELETE.
+
+### Calls
+
+```
+JSON.parse(RestClient.get 'http://localhost:3000/plants')
+```
+
+```
+JSON.parse(RestClient.patch 'http://localhost:3000/plants/1', {name: 'plant name', scientific_name: 'something scientific sounding', general: 'general plant info', leaves: 'a type of leave/needle', cones: 'cone info', ecology: 'ecology info', plant_type: 'general plant type for general identification'}
+```
+
+```
+JSON.parse(RestClient.post 'http://localhost:3000/plants', {name: 'plant name', scientific_name: 'something scientific sounding', general: 'general plant info', leaves: 'a type of leave/needle', cones: 'cone info', ecology: 'ecology info', plant_type: 'general plant type for general identification'}
+```
+
+```
+JSON.parse(RestClient.delete 'http://localhost:3000/plants/1'
+```
+
+## Development server
+
+Run `bundle exec rails s` for a dev server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
+
+## Testing
+
+This app uses RSpec and Shouldamatchers for testing.
+Run `bundle exec rspec` in terminal to test.
+
+## Technologies Used
+
+* Ruby
+* Rails
+* JWT Gem
+* Devise
+* ActiveRecord
+* Postgres
+* Bundler
+* Rake Gem
+* ES6
+
+## Known Bugs
+_N/A_
+
+## Support and contact details
+_Please contact Kat at Katgiff2007@gmail.com with questions or submit a pull request for suggestions._
+
+### License
+*This software is licensed under the MIT license*
+Copyright © 2017 **Kat Gifford**
