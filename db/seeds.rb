@@ -11,7 +11,7 @@ class Seed
       plant = Plant.create!(
         name: Faker::Ancient.god,
         scientific_name: Faker::Ancient.hero,
-        type: Faker::Ancient.titan,
+        plant_type: Faker::Ancient.titan,
         general: Faker::Hobbit.character,
         leaves: Faker::Hobbit.location,
         cones: Faker::Ancient.primordial,
@@ -19,8 +19,10 @@ class Seed
       )
       Plant.all.each do |p|
       puts "Made #{p.name}"
+      end
     end
   end
+
 end
 
 Seed.begin

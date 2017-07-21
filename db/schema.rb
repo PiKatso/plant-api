@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170721153615) do
+ActiveRecord::Schema.define(version: 20170721172225) do
 
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.string "scientific_name"
-    t.string "type"
     t.string "general"
     t.string "leaves"
     t.string "cones"
     t.string "ecology"
+    t.string "plant_type"
   end
 
 end
