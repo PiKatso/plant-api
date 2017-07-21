@@ -29,6 +29,10 @@ class PlantsController < ApplicationController
     @plant = Plant.find(params[:id])
     if @plant.destroy!
       render status: 200, json: { message: "Your plant has successfully been deleted." }
+    else
+      render status: 503, json: {
+        message: "service not available"
+      }
     end
   end
 
