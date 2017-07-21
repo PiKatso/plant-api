@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "get all plants route", :type => :request do
+describe "get all plants route", type: :request do
   let!(:plants) { FactoryGirl.create_list(:plant, 20)}
 
   before { get '/plants'}
