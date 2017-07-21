@@ -4,7 +4,7 @@ describe "update plant request", type: :request do
   before do
 
     plant = FactoryGirl.create(:plant)
-    put "/plants/#{plant.id}/?name=Willow"
+    put "/v1/plants/#{plant.id}/?name=Willow"
   end
 
   it 'should return status 200' do

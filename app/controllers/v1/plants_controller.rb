@@ -1,4 +1,4 @@
-class PlantsController < ApplicationController
+class V1::PlantsController < ApplicationController
   # before_action
 
   def index

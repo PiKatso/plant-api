@@ -4,7 +4,7 @@ describe "post a plant route", type: :request do
 
   before do
     @plant = FactoryGirl.build(:plant)
-      post "/plants", params: {
+      post "/v1/plants", params: {
         name: @plant.name,
         scientific_name: @plant.scientific_name,
         plant_type: @plant.plant_type,
