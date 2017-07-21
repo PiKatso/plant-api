@@ -13,17 +13,23 @@ class PlantsController < ApplicationController
 
   def create
     @plant = Plant.create(plant_params)
-    json_response(@plant)
+    json_response(@plant, :created)
   end
 
   def update
     @plant = Plant.find(params[:id])
-    @plant.update(plant_params)
+    if @plant.update!(plant_params)
+      render status: 200, json: {
+       message: "#{@plant.name} has been updated successfully."
+       }
+    end
   end
 
   def destroy
     @plant = Plant.find(params[:id])
-    @plant.destroy
+    if @plant.destroy!
+      render status: 200, json: { message: "Your plant has successfully been deleted." }
+    end
   end
 
   private
