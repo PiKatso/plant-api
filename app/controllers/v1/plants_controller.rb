@@ -8,6 +8,8 @@ class V1::PlantsController < ApplicationController
       @plants = Plant.sci_name_search(sci_name)
     elsif plant_type = params[:plant_type]
       @plants = Plant.type_search(plant_type)
+    elsif plant = Plant.all[rand(Plant.count)].id
+      @plants = Plant.random_search(plant)
     else
       @plants = Plant.all
     end
