@@ -6,7 +6,7 @@ describe "get all plants route", type: :request do
   before { get '/plants'}
 
   it 'returns all plants' do
-     expect(jsonParse.size).to eq (20)
+     expect(jsonParse.size).to eq (10)
   end
 
   it 'returns status code 200' do
@@ -33,5 +33,6 @@ describe "get all plants route", type: :request do
     output = JSON.parse(response.body).first
     expect(output.fetch("plant_type")).to eq "#{plant.plant_type}"
   end
+
 
 end
