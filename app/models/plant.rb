@@ -5,4 +5,8 @@ class Plant < ApplicationRecord
   scope :name_search, -> (input) { where("name like ?", "#{input}")}
   scope :sci_name_search, -> (input) { where("scientific_name like ?", "#{input}")}
   scope :type_search, -> (input) { where("plant_type like ?", "#{input}")}
+
+  # PAGINATION
+  paginates_per 10
+  max_paginates_per 10
 end

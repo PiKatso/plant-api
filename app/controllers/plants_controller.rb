@@ -11,7 +11,7 @@ class PlantsController < ApplicationController
     else
       @plants = Plant.all
     end
-    json_response(@plants)
+    json_response(@plants.page(params[:page]))
   end
 
   def show
