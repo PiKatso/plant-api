@@ -26,9 +26,6 @@ class PlantsController < ApplicationController
   end
 
   private
-  def json_response(object)
-    render json: object, status: :ok
-  end
 
   def plant_params
     params.permit(:name, :scientific_name, :plant_type, :general, :leaves, :cones, :ecology)
